@@ -2,56 +2,221 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Unirse al Servidor Zelix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 DBE REWARDS 🐉</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-top: 50px;
-            background-color: #1a1a1a;
+            padding: 20px;
+            background: linear-gradient(-45deg, #ff6b00, #ff9500, #ffcc00, #ff6b00);
+            background-size: 400% 400%;
+            animation: fondoAnimado 8s ease infinite;
             color: #ffffff;
         }
+
+        @keyframes fondoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* LOGO DRAGON BALL Z */
+        .logo {
+            max-width: 450px;
+            width: 90%;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 15px rgba(255, 150, 0, 0.9))
+                    drop-shadow(0 0 30px rgba(255, 80, 0, 0.6));
+            animation: flotarLogo 3s ease-in-out infinite;
+        }
+
+        @keyframes flotarLogo {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.03); }
+        }
+
+        /* CUADRO PRINCIPAL */
+        .container {
+            background: rgba(0, 0, 0, 0.75);
+            border: 3px solid #ffcc00;
+            border-radius: 20px;
+            padding: 30px 25px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(255, 204, 0, 0.6);
+            animation: brillo 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes brillo {
+            from { box-shadow: 0 0 20px rgba(255, 204, 0, 0.4); }
+            to { box-shadow: 0 0 40px rgba(255, 204, 0, 0.9); }
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ffcc00;
+            text-shadow: 0 0 10px #ff6b00, 0 0 20px #ff6b00;
+            animation: flotar 2s ease-in-out infinite;
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        /* BOTÓN */
         .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
             display: inline-block;
-            font-size: 18px;
-            border-radius: 8px;
+            background: linear-gradient(45deg, #ff6b00, #ffcc00);
+            color: #000000;
+            padding: 18px 35px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
             cursor: pointer;
-            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+            animation: pulso 1.5s ease-in-out infinite;
+            width: 100%;
+            max-width: 320px;
         }
+
+        @keyframes pulso {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
         .btn:hover {
-            background-color: #45a049;
+            transform: scale(1.1);
+            box-shadow: 0 0 35px rgba(255, 204, 0, 1);
         }
+
+        /* INFO IP Y PUERTO */
         .info {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #aaaaaa;
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #cccccc;
+            line-height: 1.6;
         }
+
         code {
-            background-color: #333;
-            padding: 4px 8px;
-            border-radius: 4px;
-            color: #4CAF50;
+            background-color: rgba(255, 204, 0, 0.2);
+            padding: 4px 10px;
+            border-radius: 6px;
+            color: #ffcc00;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin: 3px 0;
+            word-break: break-all;
+        }
+
+        /* ESFERAS DEL DRAGÓN */
+        .esferas {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .esfera {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255, 180, 0, 0.9));
+            animation: brilloEsfera 2s ease-in-out infinite alternate;
+            transition: transform 0.3s;
+        }
+
+        .esfera:hover {
+            transform: scale(1.25) rotate(15deg);
+        }
+
+        .esfera:nth-child(1) { animation-delay: 0s; }
+        .esfera:nth-child(2) { animation-delay: 0.3s; }
+        .esfera:nth-child(3) { animation-delay: 0.6s; }
+        .esfera:nth-child(4) { animation-delay: 0.9s; }
+        .esfera:nth-child(5) { animation-delay: 1.2s; }
+        .esfera:nth-child(6) { animation-delay: 1.5s; }
+        .esfera:nth-child(7) { animation-delay: 1.8s; }
+
+        @keyframes brilloEsfera {
+            from { filter: drop-shadow(0 0 8px rgba(255, 180, 0, 0.6)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 220, 0, 1)); }
+        }
+
+        /* AJUSTES PARA MÓVIL */
+        @media (max-width: 480px) {
+            .logo { max-width: 280px; margin-bottom: 10px; }
+            h1 { font-size: 1.5rem; }
+            .subtitulo { font-size: 0.9rem; }
+            .btn { font-size: 1rem; padding: 15px 25px; }
+            .container { padding: 25px 18px; }
+            .info { font-size: 0.75rem; }
+            .esfera { width: 30px; height: 30px; }
         }
     </style>
 </head>
 <body>
-    <h1>🐉 DBE REWARDS - Dragon Ball Minecraft Server 🐉</h1>
-    <p>Haz clic en el botón para abrir Minecraft y unirte automáticamente.</p>
-    
-    <!-- ENLACE DIRECTO -->
-    <a href="minecraft://?addExternalServer=Servidor-Zelix|mc.zelixhost.com:25828" class="btn">
-        ▶ Abrir en Minecraft
-    </a>
 
-    <div class="info">
-        <p>Si no se abre automáticamente, agrega el servidor manualmente:</p>
-        <p>IP: <code>mc.zelixhost.com</code></p>
-        <p>Puerto: <code>25828</code></p>
+    <!-- LOGO DRAGON BALL Z -->
+    <img src="logo.png" alt="Dragon Ball Z" class="logo">
+
+    <!-- CUADRO PRINCIPAL -->
+    <div class="container">
+        <h1>🐉 DBE REWARDS 🐉</h1>
+        <p class="subtitulo">¡Únete a la aventura y reclama tus recompensas!</p>
+
+        <!-- BOTÓN DE CONEXIÓN -->
+        <a href="minecraft://?addExternalServer=DBE-REWARDS|mc.zelixhost.com:25828" class="btn">
+            ⚡ ABRIR EN MINECRAFT ⚡
+        </a>
+
+        <!-- INFO IP Y PUERTO -->
+        <div class="info">
+            <p>Si no se abre automáticamente, agrega el servidor manualmente:</p>
+            <p>IP: <code>mc.zelixhost.com</code></p>
+            <p>Puerto: <code>25828</code></p>
+
+            <!-- 7 ESFERAS DEL DRAGÓN -->
+            <div class="esferas">
+                <img src="esfera1.png" alt="Esfera 1" class="esfera">
+                <img src="esfera2.png" alt="Esfera 2" class="esfera">
+                <img src="esfera3.png" alt="Esfera 3" class="esfera">
+                <img src="esfera4.png" alt="Esfera 4" class="esfera">
+                <img src="esfera5.png" alt="Esfera 5" class="esfera">
+                <img src="esfera6.png" alt="Esfera 6" class="esfera">
+                <img src="esfera7.png" alt="Esfera 7" class="esfera">
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
